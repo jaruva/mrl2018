@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+	<head>
+		<br><br><br><br><br><br><br><br><br><br>
+		<div style="color:#F79A17" align="center">
+			<title>Reading Log</title>
+			Eldon Reading Log<br>
+		</div>
+	</head>
+		<body style="background-color:#4A0001">
+			<div align="center" style="color:#F79A17"> 
+			     {% load static %}
+			     <img src="{% static 'readinglog/ecclogo.jpg' %}"><br>
+			     <b>{{create_or_login}}</b>
+	                        <form method="post" {% csrf_token %}>
+	                               {{ form.as_p }}
+        				<input type="submit" value="{{create_or_login}}">
+        			</form><br>
+        			{% if create_or_login == 'Login' %}
+        			     Or<br><br>
+        			     <button id="Create" onclick="Create()">Create a new user</button>
+        			{% endif %}
+        		      {{ incorrect }}
+			</div>
+		</body>
+		<script>
+			function Create() {
+				location.href = window.location.href + "create/";
+				
+				}
+		</script>
+</html>
